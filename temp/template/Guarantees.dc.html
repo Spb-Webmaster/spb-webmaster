@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Montserrat:wght@700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Golos Text',sans-serif;background:#fff;color:#191513;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit}
+    ::selection{background:#FF5200;color:#fff}
+    @keyframes spbSpin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  </style>
+</helmet>
+
+<div data-screen-label="Гарантии" style="background:#fff;width:100%;overflow:hidden;min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid rgba(25,21,19,0.08)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px">
+        <svg width="30" height="32" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:20px;color:#FF5200;letter-spacing:-0.01em;white-space:nowrap">SPB-WEBMASTER</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;color:rgba(25,21,19,0.62);font-size:15px;font-weight:500">
+        <a href="Home.dc.html#services" style="transition:color .2s" style-hover="color:#191513">О студии</a>
+        <a href="Guarantees.dc.html" style="color:#FF5200">Гарантии</a>
+        <a href="Works.dc.html" style="transition:color .2s" style-hover="color:#191513">Работы</a>
+        <a href="Contacts.dc.html" style="transition:color .2s" style-hover="color:#191513">Контакты</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="tel:+79213975584" style="color:#191513;font-weight:600;font-size:15px;white-space:nowrap">+7 (921) 397-55-84</a>
+        <a href="Contacts.dc.html" style="background:#FF5200;color:#fff;font-weight:600;font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;transition:transform .15s,background .2s" style-hover="background:#ff6a26;transform:translateY(-1px)">Оставить заявку</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (dark) -->
+  <section style="position:relative;background:radial-gradient(820px circle at 92% 6%, rgba(255,82,0,0.2), transparent 56%),radial-gradient(620px circle at 0% 100%, rgba(255,82,0,0.1), transparent 50%),#191513;color:#FAF6F0;padding:clamp(44px,6vw,76px) 0 clamp(44px,6vw,68px);overflow:hidden">
+    <svg data-anim="gear" width="78" height="78" viewBox="0 0 100 100" fill="none" style="position:absolute;top:54px;right:9%;z-index:1;filter:drop-shadow(0 10px 22px rgba(255,82,0,0.3))">
+      <g fill="rgba(255,82,0,0.85)">
+        <rect x="43" y="3" width="14" height="22" rx="3"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(45 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(90 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(135 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(180 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(225 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(270 50 50)"></rect>
+        <rect x="43" y="3" width="14" height="22" rx="3" transform="rotate(315 50 50)"></rect>
+        <circle cx="50" cy="50" r="30"></circle>
+      </g>
+      <circle cx="50" cy="50" r="13" fill="#191513"></circle>
+    </svg>
+    <div style="position:absolute;bottom:-30px;right:16%;width:120px;height:120px;border:2px solid rgba(250,246,240,0.08);border-radius:12px;transform:rotate(14deg)"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+      <div style="font-size:14px;color:rgba(250,246,240,0.5);font-weight:500"><a href="Home.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Главная</a> &nbsp;/&nbsp; Гарантии</div>
+      <div style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,82,0,0.4);background:rgba(255,82,0,0.12);color:#FF7A3D;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:0.02em;margin-top:22px">
+        <span style="width:7px;height:7px;border-radius:999px;background:#FF5200;display:inline-block"></span>Гарантия качества
+      </div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,5.2vw,64px);line-height:1.02;letter-spacing:-0.03em;color:#FAF6F0;margin-top:20px;max-width:18ch"><span style="background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent">12 месяцев</span> гарантии на каждый проект</h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(250,246,240,0.7);max-width:60ch;margin-top:20px">Мы отвечаем за работу всего, что создаём. Если в течение года любая функция перестанет работать по нашей вине — исправим бесплатно. Без споров и скрытых условий.</p>
+      <div style="display:flex;gap:clamp(28px,5vw,56px);margin-top:36px;flex-wrap:wrap">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div>
+            <div style="display:flex;align-items:baseline;gap:6px">
+              <sc-if value="{{ s.prefix }}"><span style="font-size:clamp(15px,1.6vw,19px);font-weight:600;color:rgba(250,246,240,0.4)">{{ s.prefix }}</span></sc-if>
+              <span data-count style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">{{ s.value }}</span>
+            </div>
+            <div style="font-size:14px;color:rgba(250,246,240,0.55);margin-top:8px;max-width:20ch">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEME / HOW IT WORKS -->
+  <section style="position:relative;background:#F2EDE6;padding:clamp(48px,7vw,88px) 0;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF5200">Как это работает</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.06;letter-spacing:-0.02em;margin-top:14px;color:#191513;max-width:20ch">Простая и честная схема</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+          <div style="position:relative;background:#fff;border:1px solid rgba(25,21,19,0.08);border-radius:20px;padding:30px 26px 28px;box-shadow:0 12px 32px rgba(25,21,19,0.05)">
+            <div style="display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:15px;background:linear-gradient(135deg,#FF5200,#FF8A3D);color:#fff">{{ st.icon }}</div>
+            <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:14px;color:rgba(255,82,0,0.85);margin-top:22px">Шаг {{ st.n }}</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:21px;letter-spacing:-0.01em;margin-top:8px;color:#191513">{{ st.title }}</h3>
+            <p style="font-size:15px;line-height:1.55;color:rgba(25,21,19,0.62);margin-top:12px">{{ st.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERED vs VOID -->
+  <section style="position:relative;background:#fff;padding:clamp(48px,7vw,88px) 0;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+        <!-- covered -->
+        <div style="background:#F2EDE6;border-radius:22px;padding:clamp(26px,3vw,38px);border:1px solid rgba(25,21,19,0.06)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:42px;height:42px;border-radius:12px;background:rgba(255,82,0,0.12);color:#FF5200;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700">✓</span>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;letter-spacing:-0.01em;color:#191513">Что покрывает гарантия</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:24px">
+            <sc-for list="{{ covered }}" as="c" hint-placeholder-count="5">
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="flex:none;margin-top:1px;width:24px;height:24px;border-radius:999px;background:#FF5200;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>
+                <span style="font-size:15.5px;line-height:1.5;color:#191513">{{ c }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <!-- void -->
+        <div style="background:#191513;border-radius:22px;padding:clamp(26px,3vw,38px);color:#FAF6F0">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:42px;height:42px;border-radius:12px;background:rgba(250,246,240,0.1);color:rgba(250,246,240,0.85);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700">!</span>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;letter-spacing:-0.01em;color:#FAF6F0">Когда гарантия не действует</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:24px">
+            <sc-for list="{{ voided }}" as="v" hint-placeholder-count="5">
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="flex:none;margin-top:1px;width:24px;height:24px;border-radius:999px;background:rgba(250,246,240,0.12);color:rgba(250,246,240,0.7);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">✕</span>
+                <span style="font-size:15.5px;line-height:1.5;color:rgba(250,246,240,0.78)">{{ v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY CONDITION -->
+  <section style="position:relative;background:#FF5200;color:#191513;padding:clamp(48px,7vw,88px) 0;overflow:hidden">
+    <div style="position:absolute;top:-30px;left:8%;width:130px;height:130px;border:2px solid rgba(25,21,19,0.16);border-radius:50%"></div>
+    <div style="position:absolute;bottom:-40px;right:12%;width:150px;height:150px;border:1.5px dashed rgba(25,21,19,0.22);border-radius:50%"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(25,21,19,0.55)">Важное условие</div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.06;letter-spacing:-0.02em;margin-top:14px;color:#191513;max-width:16ch">Работайте через админ-панель</h2>
+          <p style="font-size:clamp(16px,1.9vw,19px);line-height:1.6;color:rgba(25,21,19,0.78);margin-top:18px;max-width:46ch">Гарантия действует, пока сайт остаётся в том виде, в котором мы его сдали. Управляйте контентом через удобную админ-панель — все нужные правки доступны там, без вмешательства в код.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:#191513;color:#FAF6F0;border-radius:18px;padding:24px 26px;display:flex;align-items:flex-start;gap:16px">
+            <span style="flex:none;width:46px;height:46px;border-radius:13px;background:rgba(255,82,0,0.15);color:#FF7A3D;display:flex;align-items:center;justify-content:center">{{ iconPanel }}</span>
+            <div>
+              <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:18px;color:#FAF6F0">Можно</div>
+              <p style="font-size:15px;line-height:1.5;color:rgba(250,246,240,0.65);margin-top:6px">Менять тексты, фото, товары, страницы и настройки через админ-панель сайта.</p>
+            </div>
+          </div>
+          <div style="background:#191513;color:#FAF6F0;border-radius:18px;padding:24px 26px;display:flex;align-items:flex-start;gap:16px">
+            <span style="flex:none;width:46px;height:46px;border-radius:13px;background:rgba(250,246,240,0.08);color:rgba(250,246,240,0.6);display:flex;align-items:center;justify-content:center">{{ iconCode }}</span>
+            <div>
+              <div style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:18px;color:#FAF6F0">Снимает гарантию</div>
+              <p style="font-size:15px;line-height:1.5;color:rgba(250,246,240,0.65);margin-top:6px">Изменение исходного кода сайта, правки файлов на сервере или вмешательство сторонних разработчиков.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative;flex:1;background:#191513;color:#FAF6F0;padding:clamp(48px,7vw,80px) 0;overflow:hidden">
+    <div style="position:absolute;top:-30px;right:10%;width:140px;height:140px;border:1.5px dashed rgba(255,82,0,0.3);border-radius:50%"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+      <div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(26px,3.4vw,42px);line-height:1.06;letter-spacing:-0.02em;color:#FAF6F0;max-width:20ch">Хотите проект с гарантией?</h2>
+        <p style="font-size:16px;line-height:1.55;color:rgba(250,246,240,0.65);margin-top:14px;max-width:46ch">Все условия гарантии и сроки фиксируем в договоре до старта работ.</p>
+      </div>
+      <a href="Contacts.dc.html" style="background:#FF5200;color:#fff;font-weight:600;font-size:16px;padding:16px 32px;border-radius:999px;white-space:nowrap;transition:transform .15s,background .2s" style-hover="background:#ff6a26;transform:translateY(-2px)">Обсудить проект</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0F0C0A;color:rgba(250,246,240,0.6);padding:clamp(40px,6vw,60px) 0 32px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <svg width="26" height="28" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;color:#FAF6F0;white-space:nowrap">SPB-WEBMASTER</span>
+      </div>
+      <div style="display:flex;gap:24px;font-size:15px;flex-wrap:wrap">
+        <a href="Home.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Главная</a>
+        <a href="Guarantees.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Гарантии</a>
+        <a href="Works.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Работы</a>
+        <a href="Contacts.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Контакты</a>
+      </div>
+      <span style="font-size:13px;color:rgba(250,246,240,0.4)">© 2026 SPB-WEBMASTER</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.transition = 'box-shadow .25s ease';
+      const onScroll = () => { header.style.boxShadow = window.scrollY > 8 ? '0 6px 24px rgba(25,21,19,0.09)' : 'none'; };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const gear = document.querySelector('[data-anim="gear"]');
+      if (gear) gear.style.animation = 'spbSpin 22s linear infinite';
+      const rest = [...document.querySelectorAll('section, footer')];
+      rest.forEach((s) => { s.style.opacity = '0'; s.style.transform = 'translateY(28px)'; s.style.transition = 'opacity .7s ease, transform .7s ease'; });
+      const reveal = (s) => { s.dataset._shown = '1'; s.style.opacity = '1'; s.style.transform = 'none'; };
+      if (rest[0]) reveal(rest[0]);
+      const check = () => {
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        let remaining = false;
+        rest.forEach((s) => { if (s.dataset._shown) return; const r = s.getBoundingClientRect(); if (r.top < vh * 0.9 && r.bottom > 0) reveal(s); else remaining = true; });
+        if (!remaining) { window.removeEventListener('scroll', onScroll2, true); window.removeEventListener('resize', check); }
+      };
+      const onScroll2 = () => check();
+      window.addEventListener('scroll', onScroll2, true);
+      window.addEventListener('resize', check);
+      check();
+      requestAnimationFrame(() => requestAnimationFrame(check));
+      setTimeout(check, 300);
+      setTimeout(() => rest.forEach(reveal), 4500);
+    }
+    this._countUp();
+  }
+
+  _countUp() {
+    [...document.querySelectorAll('[data-count]')].forEach((el) => {
+      const raw = el.textContent.trim();
+      const m = raw.match(/^(\D*)([\d\s]+)(\D*)$/);
+      if (!m) return;
+      const pre = m[1];
+      let mid = m[2], post = m[3];
+      const trail = mid.match(/\s+$/);
+      if (trail) { post = trail[0] + post; mid = mid.replace(/\s+$/, ''); }
+      const target = parseInt(mid.replace(/\s/g, ''), 10);
+      if (!isFinite(target)) return;
+      const grouped = /\s/.test(mid);
+      const fmt = (n) => grouped ? n.toLocaleString('ru-RU') : String(n);
+      const dur = 1100, start = performance.now();
+      const tick = (now) => { const t = Math.min(1, (now - start) / dur); const eased = 1 - Math.pow(1 - t, 3); el.textContent = pre + fmt(Math.round(target * eased)) + post; if (t < 1) requestAnimationFrame(tick); };
+      el.textContent = pre + '0' + post;
+      requestAnimationFrame(tick);
+    });
+  }
+
+  renderVals() {
+    const ico = (...children) => React.createElement('svg', { width: 26, height: 26, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }, ...children);
+    const p = (d, key) => React.createElement('path', { key, d });
+    return {
+      stats: [
+        { value: '12', post: '', label: 'месяцев гарантии на работу' },
+        { prefix: '', value: '0 ₽', label: 'за исправление наших ошибок' },
+        { value: '100%', label: 'проектов сдаём по договору' },
+      ],
+      steps: [
+        { n: '1', title: 'Создаём с гарантией', desc: 'Сдаём готовый проект и закрепляем в договоре гарантию 12 месяцев на работу всех функций.',
+          icon: ico(p('M12 3l7 4v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V7l7-4z', 'a'), p('M9 12l2 2 4-4', 'b')) },
+        { n: '2', title: 'Что-то перестало работать', desc: 'Заметили, что функция, форма или интеграция работает не так, как при сдаче — сообщаете нам.',
+          icon: ico(p('M10.3 3.6L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0z', 'a'), p('M12 9v4', 'b'), p('M12 17h.01', 'c')) },
+        { n: '3', title: 'Бесплатно исправляем', desc: 'Находим причину и устраняем неточности и ошибки без доплат — в рамках действующей гарантии.',
+          icon: ico(p('M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4l-2.6 2.6-1.4-1.4 2.6-2.6z', 'a')) },
+      ],
+      covered: [
+        'Корректная работа всех функций, форм и кнопок',
+        'Отображение сайта в современных браузерах',
+        'Работа интеграций, настроенных нашей студией',
+        'Адаптивность и целостность вёрстки',
+        'Исправление технических ошибок по нашей вине',
+      ],
+      voided: [
+        'Внесены изменения в исходный код сайта',
+        'Правки выполнял сторонний разработчик',
+        'Файлы на сервере изменены вручную',
+        'Установлены посторонние скрипты или плагины',
+        'Сбои хостинга или домена не по нашей вине',
+      ],
+      iconPanel: ico(p('M3 4h18v16H3z', 'a'), p('M3 9h18', 'b'), p('M7 6.5h.01', 'c'), p('M10 6.5h.01', 'd')),
+      iconCode: ico(p('M8 9l-3 3 3 3', 'a'), p('M16 9l3 3-3 3', 'b'), p('M13 7l-2 10', 'c')),
+    };
+  }
+}
+</script>
+</body>
+</html>

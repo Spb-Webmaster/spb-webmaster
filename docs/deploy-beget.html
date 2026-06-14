@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Деплой Laravel на Beget</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
+  h1 { border-bottom: 3px solid #2563eb; padding-bottom: 12px; }
+  h2 { margin-top: 48px; color: #1d4ed8; }
+  h3 { margin-top: 28px; color: #374151; }
+  pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #dc2626; }
+  pre code { background: none; color: inherit; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th { background: #2563eb; color: #fff; padding: 10px 16px; text-align: left; }
+  td { padding: 9px 16px; border-bottom: 1px solid #e5e7eb; }
+  tr:hover td { background: #f8fafc; }
+  blockquote { border-left: 4px solid #f59e0b; margin: 0; padding: 12px 20px; background: #fffbeb; border-radius: 0 6px 6px 0; }
+  .step { counter-increment: step; }
+  .warn { background: #fef2f2; border-left: 4px solid #ef4444; padding: 12px 20px; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .tip { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 12px 20px; border-radius: 0 6px 6px 0; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<h1>Деплой Laravel на виртуальный хостинг Beget</h1>
+
+<h2>Особенности Beget</h2>
+<ul>
+  <li>SSH-пользователь заперт в chroot: домашняя директория = <code>public_html/</code></li>
+  <li>Document root изменить нельзя — всегда <code>public_html/</code></li>
+  <li>Composer предустановлен версии 1.x — <strong>не подходит</strong> для Laravel 10+</li>
+  <li>PHP доступен через <code>php8.3</code>, <code>php8.2</code> и т.д.</li>
+  <li><code>sed -i</code> не работает на файлах созданных другим процессом</li>
+</ul>
+
+<h2>Структура проекта на сервере</h2>
+<pre><code>public_html/          ← chroot-корень, сюда деплоятся все файлы Laravel
+├── app/
+├── bootstrap/
+├── config/
+├── public/           ← реальная веб-директория
+├── storage/
+├── .htaccess         ← маршрутизирует запросы из public_html/ в public/
+└── ...</code></pre>
+
+<h2>Подготовка: одноразовые шаги</h2>
+
+<h3>1. Установить Composer 2 на сервере</h3>
+<pre><code>ssh USER@HOST
+wget -q https://getcomposer.org/download/latest-2.x/composer.phar -O ~/composer2.phar
+chmod +x ~/composer2.phar
+php8.3 ~/composer2.phar --version</code></pre>
+
+<h3>2. Сгенерировать SSH-ключ для деплоя</h3>
+<pre><code>ssh-keygen -t ed25519 -C "github-actions-deploy" -f ~/.ssh/beget_deploy -N ""</code></pre>
+
+<h3>3. Добавить публичный ключ на Beget</h3>
+<p>Через PuTTY plink (Windows) — интерактивный ввод пароля:</p>
+<pre><code>$pubkey = Get-Content "~/.ssh/beget_deploy.pub"
+"y" | &amp; "C:\Program Files\PuTTY\plink.exe" -ssh -pw "ПАРОЛЬ" USER@HOST `
+  "mkdir -p ~/.ssh &amp;&amp; chmod 711 ~/.ssh &amp;&amp; echo '$pubkey' &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; chmod 600 ~/.ssh/authorized_keys"</code></pre>
+
+<h3>4. Добавить секреты в GitHub</h3>
+<p><code>Settings → Secrets and variables → Actions</code></p>
+<table>
+  <tr><th>Secret</th><th>Значение</th></tr>
+  <tr><td><code>SSH_HOST</code></td><td>hostname сервера</td></tr>
+  <tr><td><code>SSH_USER</code></td><td>логин SSH</td></tr>
+  <tr><td><code>SSH_PRIVATE_KEY</code></td><td>содержимое <code>~/.ssh/beget_deploy</code></td></tr>
+  <tr><td><code>ENV_PRODUCTION</code></td><td>содержимое <code>.env</code> для продакшена</td></tr>
+</table>
+
+<h3>5. Настроить cron для очередей</h3>
+<p>Панель Beget → Cron:</p>
+<pre><code>* * * * * /usr/local/php8.3/bin/php /home/a/USERNAME/DOMAIN/public_html/artisan queue:work --stop-when-empty &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
+
+<h2>.htaccess в корне проекта</h2>
+<div class="warn">Финальное правило не содержит <code>!-d</code>, иначе корневой URL <code>/</code> возвращает 403.</div>
+<pre><code>&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+
+    RewriteRule ^\.env - [F,L]
+    RewriteRule ^artisan - [F,L]
+    RewriteRule ^composer\.(json|lock)$ - [F,L]
+    RewriteRule ^package(-lock)?\.json$ - [F,L]
+    RewriteRule ^phpunit\.xml$ - [F,L]
+    RewriteRule ^(app|bootstrap|config|database|lang|resources|routes|src|storage|vendor)(/|$) - [F,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
+    RewriteRule ^(.+)$ public/$1 [L,QSA]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ public/index.php [L,QSA]
+&lt;/IfModule&gt;</code></pre>
+
+<h2>GitHub Actions: deploy.yml</h2>
+<pre><code>name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Build frontend assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" &gt; ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} &gt;&gt; ~/.ssh/known_hosts
+
+      - name: Deploy files via rsync
+        run: |
+          rsync -rltz --delete \
+            --no-perms --no-owner --no-group --omit-dir-times \
+            --exclude='.git' --exclude='.ssh' --exclude='.cache' \
+            --exclude='composer2.phar' --exclude='node_modules' \
+            --exclude='.env' --exclude='/vendor' \
+            --exclude='storage/app/public' \
+            --exclude='storage/logs' \
+            --exclude='storage/framework/sessions' \
+            --exclude='storage/framework/cache' \
+            --exclude='storage/framework/views' \
+            --exclude='public/storage' \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
+
+      - name: Post-deploy tasks
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd ~
+            cat &gt; .env &lt;&lt; '__ENV_EOF__'
+            ${{ secrets.ENV_PRODUCTION }}
+            __ENV_EOF__
+            mkdir -p storage/framework/{cache/data,sessions,testing,views} storage/app/public storage/logs
+            chmod -R 775 storage bootstrap/cache
+            php8.3 ~/composer2.phar install --no-dev --optimize-autoloader --no-interaction --no-scripts
+            php8.3 artisan package:discover --ansi
+            php8.3 artisan migrate --force
+            php8.3 artisan config:cache
+            php8.3 artisan route:cache
+            php8.3 artisan view:cache
+            php8.3 artisan storage:link --force</code></pre>
+
+<h2>Ключевые флаги rsync</h2>
+<table>
+  <tr><th>Флаг</th><th>Причина</th></tr>
+  <tr><td><code>--no-perms</code></td><td>Нельзя менять права в chroot</td></tr>
+  <tr><td><code>--no-owner</code></td><td>Нельзя менять владельца</td></tr>
+  <tr><td><code>--no-group</code></td><td>Нельзя менять группу</td></tr>
+  <tr><td><code>--omit-dir-times</code></td><td>Нельзя устанавливать mtime на корневую директорию</td></tr>
+</table>
+<div class="warn">Без этих флагов rsync завершается с <strong>exit code 23</strong>.</div>
+
+<h2>Медиафайлы</h2>
+<p>Файлы из <code>storage/app/public/</code> не деплоятся через git. При первичной настройке загружать по SFTP:</p>
+<table>
+  <tr><th>Параметр</th><th>Значение</th></tr>
+  <tr><td>Протокол</td><td>SFTP</td></tr>
+  <tr><td>Порт</td><td>22</td></tr>
+  <tr><td>Папка на сервере</td><td><code>/storage/app/public/</code></td></tr>
+</table>
+
+<h2>Типовые ошибки</h2>
+<table>
+  <tr><th>Ошибка</th><th>Причина</th><th>Решение</th></tr>
+  <tr><td><code>rsync exit code 23</code></td><td>Права на директорию</td><td>Добавить <code>--no-perms --no-owner --no-group --omit-dir-times</code></td></tr>
+  <tr><td><code>403 Forbidden</code> на <code>/</code></td><td><code>!-d</code> в .htaccess</td><td>Убрать <code>!-d</code> из финального RewriteRule</td></tr>
+  <tr><td><code>Please provide a valid cache path</code></td><td>Нет <code>storage/framework/views</code></td><td><code>mkdir -p storage/framework/{cache/data,sessions,testing,views}</code></td></tr>
+  <tr><td><code>package:discover exit 1</code></td><td>Отсутствующие директории</td><td>Сначала <code>mkdir -p</code>, потом artisan</td></tr>
+  <tr><td>Composer устарел</td><td>Версия 1.x на Beget</td><td>Установить <code>~/composer2.phar</code> вручную</td></tr>
+  <tr><td>Белый экран в <code>/admin/</code></td><td><code>vendor/</code> заблокирован в .htaccess, JS/CSS MoonShine не грузятся (403)</td><td>Добавить <code>RewriteRule ^vendor/(.*)$ public/vendor/$1</code> ДО блокирующих правил</td></tr>
+  <tr><td><code>View [default] not found</code> (500 на страницах с пагинацией)</td><td><code>--exclude='vendor'</code> в rsync исключает и <code>resources/views/vendor/</code></td><td>Использовать <code>--exclude='/vendor'</code> (с ведущим слэшем)</td></tr>
+</table>
+
+<h2>Исправление: белый экран в /admin/ (MoonShine)</h2>
+<p>MoonShine загружает ассеты по URL вида <code>/vendor/moonshine/assets/app.js</code>. Блокирующее правило в <code>.htaccess</code>:</p>
+<pre><code>RewriteRule ^(app|bootstrap|config|...|vendor)(/|$) - [F,L]</code></pre>
+<p>срабатывает <strong>до</strong> редиректа на <code>public/</code> и возвращает <strong>403</strong> на любой <code>/vendor/*</code> запрос — из-за чего Alpine.js и CSS не загружаются, страница выглядит пустой.</p>
+<p>Решение: добавить явный редирект <code>vendor/ → public/vendor/</code> <strong>до</strong> блокирующих правил:</p>
+<pre><code># Публичные ассеты из public/vendor/ (MoonShine, TinyMCE и др.)
+RewriteRule ^vendor/(.*)$ public/vendor/$1 [L,QSA]</code></pre>
+<div class="tip">Почему это безопасно: PHP-пакеты в корневом <code>vendor/</code> недоступны — <code>public/vendor/</code> содержит только опубликованные статические ассеты. Запросы вида <code>/vendor/laravel/framework/...</code> вернут 404.</div>
+
+</body>
+</html>

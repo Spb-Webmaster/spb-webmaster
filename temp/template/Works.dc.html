@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Montserrat:wght@700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Golos Text',sans-serif;background:#fff;color:#191513;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit}
+    ::selection{background:#FF5200;color:#fff}
+  </style>
+</helmet>
+
+<div data-screen-label="Наши работы" style="background:#fff;width:100%;overflow:hidden;min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid rgba(25,21,19,0.08)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px">
+        <svg width="30" height="32" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:20px;color:#FF5200;letter-spacing:-0.01em;white-space:nowrap">SPB-WEBMASTER</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;color:rgba(25,21,19,0.62);font-size:15px;font-weight:500">
+        <a href="Home.dc.html#services" style="transition:color .2s" style-hover="color:#191513">О студии</a>
+        <a href="Guarantees.dc.html" style="transition:color .2s" style-hover="color:#191513">Гарантии</a>
+        <a href="Works.dc.html" style="color:#FF5200">Работы</a>
+        <a href="Contacts.dc.html" style="transition:color .2s" style-hover="color:#191513">Контакты</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="tel:+79213975584" style="color:#191513;font-weight:600;font-size:15px;white-space:nowrap">+7 (921) 397-55-84</a>
+        <a href="Contacts.dc.html" style="background:#FF5200;color:#fff;font-weight:600;font-size:14px;padding:11px 20px;border-radius:999px;white-space:nowrap;transition:transform .15s,background .2s" style-hover="background:#ff6a26;transform:translateY(-1px)">Оставить заявку</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (dark) -->
+  <section style="position:relative;background:radial-gradient(820px circle at 92% 6%, rgba(255,82,0,0.2), transparent 56%),radial-gradient(620px circle at 0% 100%, rgba(255,82,0,0.1), transparent 50%),#191513;color:#FAF6F0;padding:clamp(40px,6vw,72px) 0 clamp(40px,6vw,64px);overflow:hidden">
+    <div style="position:absolute;top:50px;right:7%;width:120px;height:120px;border:2px solid rgba(255,82,0,0.25);border-radius:12px;transform:rotate(14deg)"></div>
+    <div style="position:absolute;top:86px;right:14%;width:120px;height:120px;border:2px solid rgba(250,246,240,0.08);border-radius:12px;transform:rotate(14deg)"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+      <div style="font-size:14px;color:rgba(250,246,240,0.5);font-weight:500"><a href="Home.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Главная</a> &nbsp;/&nbsp; Наши работы</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,5.2vw,64px);line-height:1.02;letter-spacing:-0.03em;color:#FAF6F0;margin-top:18px">Наши <span style="background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent">работы</span></h1>
+      <p style="font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(250,246,240,0.7);max-width:60ch;margin-top:20px">Сайты и веб-сервисы, которые мы спроектировали и разработали для бизнеса из разных отраслей — от турагентств и страхования до государственных реестров и билетных систем.</p>
+      <div style="display:flex;gap:clamp(28px,5vw,56px);margin-top:36px;flex-wrap:wrap">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div>
+            <div data-count style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(26px,3.2vw,38px);background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">{{ s.value }}</div>
+            <div style="font-size:14px;color:rgba(250,246,240,0.55);margin-top:6px">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (light) -->
+  <section style="position:relative;flex:1;background:#F2EDE6;padding:clamp(40px,6vw,72px) 0 clamp(56px,8vw,96px);overflow:hidden">
+    <div style="position:absolute;bottom:60px;left:-30px;width:120px;height:120px;border:2px solid rgba(255,82,0,0.14);border-radius:12px;transform:rotate(-12deg)"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+
+      <!-- filter chips -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+          <sc-if value="{{ c.active }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ c.onClick }}" style="background:#FF5200;color:#fff;border:1px solid #FF5200;border-radius:999px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:transform .15s">{{ c.name }}</button>
+          </sc-if>
+          <sc-if value="{{ c.inactive }}">
+            <button onClick="{{ c.onClick }}" style="background:#fff;color:#191513;border:1px solid rgba(25,21,19,0.12);border-radius:999px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:border-color .2s,color .2s" style-hover="border-color:#FF5200;color:#FF5200">{{ c.name }}</button>
+          </sc-if>
+        </sc-for>
+      </div>
+
+      <!-- cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:clamp(20px,3vw,30px)">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid rgba(25,21,19,0.08);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 40px rgba(25,21,19,0.06)">
+            <!-- browser cover -->
+            <div style="position:relative;background:#0F0C0A">
+              <div style="display:flex;align-items:center;gap:7px;padding:11px 14px;background:#191513">
+                <span style="width:10px;height:10px;border-radius:999px;background:#FF5200;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:999px;background:rgba(250,246,240,0.2);display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:999px;background:rgba(250,246,240,0.2);display:inline-block"></span>
+                <span style="flex:1;margin-left:8px;height:18px;border-radius:999px;background:rgba(250,246,240,0.08)"></span>
+              </div>
+              <div style="position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#F2EDE6">
+                {{ p.mainEl }}</div>
+            </div>
+            <!-- body -->
+            <div style="padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;flex:1">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#FF5200;background:rgba(255,82,0,0.1);border-radius:999px;padding:6px 13px">{{ p.category }}</span>
+              </div>
+              <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(21px,2.2vw,26px);letter-spacing:-0.01em;margin-top:16px;color:#191513">{{ p.title }}</h3>
+              <p style="font-size:15px;line-height:1.6;color:rgba(25,21,19,0.62);margin-top:12px;flex:1">{{ p.desc }}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+                <sc-for list="{{ p.tech }}" as="t" hint-placeholder-count="3">
+                  <span style="font-size:13px;font-weight:600;color:#191513;background:#F2EDE6;border-radius:8px;padding:7px 12px">{{ t }}</span>
+                </sc-for>
+              </div>
+              <!-- thumbnails -->
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px">
+                <sc-for list="{{ p.thumbs }}" as="th" hint-placeholder-count="3">
+                  <sc-if value="{{ th.active }}" hint-placeholder-val="{{ true }}">
+                    <button onClick="{{ th.onClick }}" style="position:relative;padding:0;border:2px solid #FF5200;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/10;background:#F2EDE6">{{ th.el }}</button>
+                  </sc-if>
+                  <sc-if value="{{ th.inactive }}">
+                    <button onClick="{{ th.onClick }}" style="position:relative;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/10;background:#F2EDE6;opacity:0.7;transition:opacity .2s,border-color .2s" style-hover="opacity:1;border-color:rgba(255,82,0,0.4)">{{ th.el }}</button>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:clamp(40px,6vw,64px);background:#191513;border-radius:24px;padding:clamp(28px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-30px;right:40px;width:140px;height:140px;border:1.5px dashed rgba(255,82,0,0.3);border-radius:50%"></div>
+        <div style="position:relative">
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(24px,3vw,38px);line-height:1.08;letter-spacing:-0.02em;color:#FAF6F0;max-width:20ch">Хотите такой же проект?</h2>
+          <p style="font-size:16px;line-height:1.55;color:rgba(250,246,240,0.65);margin-top:12px;max-width:46ch">Расскажите о задаче — бесплатно оценим объём и предложим решение под ваш бюджет.</p>
+        </div>
+        <a href="Contacts.dc.html" style="position:relative;background:#FF5200;color:#fff;font-weight:600;font-size:16px;padding:16px 32px;border-radius:999px;white-space:nowrap;transition:transform .15s,background .2s" style-hover="background:#ff6a26;transform:translateY(-2px)">Обсудить проект</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0F0C0A;color:rgba(250,246,240,0.6);padding:clamp(40px,6vw,60px) 0 32px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <svg width="26" height="28" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;color:#FAF6F0;white-space:nowrap">SPB-WEBMASTER</span>
+      </div>
+      <div style="display:flex;gap:24px;font-size:15px;flex-wrap:wrap">
+        <a href="Home.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Главная</a>
+        <a href="Guarantees.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Гарантии</a>
+        <a href="Works.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Работы</a>
+        <a href="Contacts.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Контакты</a>
+      </div>
+      <span style="font-size:13px;color:rgba(250,246,240,0.4)">© 2026 SPB-WEBMASTER</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 'Все', mains: {} };
+
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.transition = 'box-shadow .25s ease';
+      const onScroll = () => { header.style.boxShadow = window.scrollY > 8 ? '0 6px 24px rgba(25,21,19,0.09)' : 'none'; };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const rest = [...document.querySelectorAll('section, footer')];
+    rest.forEach((s) => { s.style.opacity = '0'; s.style.transform = 'translateY(28px)'; s.style.transition = 'opacity .7s ease, transform .7s ease'; });
+    const reveal = (s) => { s.dataset._shown = '1'; s.style.opacity = '1'; s.style.transform = 'none'; };
+    if (rest[0]) reveal(rest[0]);
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      let remaining = false;
+      rest.forEach((s) => { if (s.dataset._shown) return; const r = s.getBoundingClientRect(); if (r.top < vh * 0.9 && r.bottom > 0) reveal(s); else remaining = true; });
+      if (!remaining) { window.removeEventListener('scroll', onScroll2, true); window.removeEventListener('resize', check); }
+    };
+    const onScroll2 = () => check();
+    window.addEventListener('scroll', onScroll2, true);
+    window.addEventListener('resize', check);
+    check();
+    requestAnimationFrame(() => requestAnimationFrame(check));
+    setTimeout(check, 300);
+    setTimeout(() => rest.forEach(reveal), 4500);
+    this._countUp();
+  }
+
+  _countUp() {
+    [...document.querySelectorAll('[data-count]')].forEach((el) => {
+      const raw = el.textContent.trim();
+      const m = raw.match(/^(\D*)([\d\s]+)(\D*)$/);
+      if (!m) return;
+      const pre = m[1];
+      let mid = m[2], post = m[3];
+      const trail = mid.match(/\s+$/);
+      if (trail) { post = trail[0] + post; mid = mid.replace(/\s+$/, ''); }
+      const target = parseInt(mid.replace(/\s/g, ''), 10);
+      if (!isFinite(target)) return;
+      const grouped = /\s/.test(mid);
+      const fmt = (n) => grouped ? n.toLocaleString('ru-RU') : String(n);
+      const dur = 1100, start = performance.now();
+      const tick = (now) => { const t = Math.min(1, (now - start) / dur); const eased = 1 - Math.pow(1 - t, 3); el.textContent = pre + fmt(Math.round(target * eased)) + post; if (t < 1) requestAnimationFrame(tick); };
+      el.textContent = pre + '0' + post;
+      requestAnimationFrame(tick);
+    });
+  }
+
+  renderVals() {
+    const B = 'assets/works/';
+    const projects = [
+      {
+        id: 'hottour', cat: 'Туризм', category: 'Турагентство',
+        title: 'HOT TOUR',
+        desc: 'Онлайн-платформа международного турагентства: поиск туров и отелей, подбор горящих предложений и личный кабинет клиента.',
+        tech: ['Каталог', 'Поиск и фильтры', 'Личный кабинет'],
+        images: [B + 'hottour1.jpg', B + 'hottour2.jpg', B + 'hottour3.jpg'],
+      },
+      {
+        id: 'generalre', cat: 'Страхование', category: 'Страхование',
+        title: 'GeneralRe',
+        desc: 'Центр страхования: онлайн-калькуляторы полисов, оформление страховки без посредников и личный кабинет с документами.',
+        tech: ['Калькуляторы', 'Оплата онлайн', 'Личный кабинет'],
+        images: [B + 'sociolog1.jpg', B + 'sociolog2.jpg', B + 'generalre3.jpg'],
+      },
+      {
+        id: 'mediator', cat: 'Госсектор', category: 'Реестр · Госсектор',
+        title: 'Ассоциация Медиаторов РК',
+        desc: 'Высшая школа медиации: публичный реестр медиаторов с поиском, обучение и многофункциональные личные кабинеты.',
+        tech: ['Реестр', 'Поиск', 'Личные кабинеты'],
+        images: [B + 'mediator1.jpg', B + 'mediator2.jpg', B + 'mediator3.jpg'],
+      },
+      {
+        id: 'institute', cat: 'Экспертиза', category: 'Судебная экспертиза',
+        title: 'НИИСЭ',
+        desc: 'Институт судебной экспертизы: каталог видов экспертиз и исследований, онлайн-заказ услуг и кабинет пользователя.',
+        tech: ['Каталог услуг', 'Заявки', 'Личный кабинет'],
+        images: [B + 'institute2.jpg', B + 'institute1.jpg', B + 'institute3.jpg'],
+      },
+      {
+        id: 'aqua', cat: 'Билеты', category: 'Билетная система',
+        title: 'Водные прогулки',
+        desc: 'Сервис продажи билетов на водные экскурсии по Санкт-Петербургу: оформление билетов, список продаж и отчётность для партнёров.',
+        tech: ['Продажа билетов', 'Отчёты', 'Админка'],
+        images: [B + 'aqua3.jpg', B + 'aqua1.jpg', B + 'aqua2.jpg'],
+      },
+    ];
+
+    const filter = this.state.filter;
+    const mains = this.state.mains;
+    const cats = ['Все', 'Страхование', 'Туризм', 'Госсектор', 'Экспертиза', 'Билеты'].map((name) => ({
+      name,
+      active: name === filter,
+      inactive: name !== filter,
+      onClick: () => this.setState({ filter: name }),
+    }));
+
+    const coverStyle = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' };
+    const thumbStyle = { width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' };
+    const list = projects
+      .filter((p) => filter === 'Все' || p.cat === filter)
+      .map((p) => {
+        const main = mains[p.id] || p.images[0];
+        return {
+          ...p,
+          main,
+          mainEl: React.createElement('img', { src: main, alt: p.title, style: coverStyle }),
+          thumbs: p.images.map((src) => ({
+            src,
+            active: src === main,
+            inactive: src !== main,
+            el: React.createElement('img', { src, alt: '', style: thumbStyle }),
+            onClick: () => this.setState((s) => ({ mains: { ...s.mains, [p.id]: src } })),
+          })),
+        };
+      });
+
+    return {
+      stats: [
+        { value: '5', label: 'реализованных проектов' },
+        { value: '5', label: 'разных отраслей' },
+        { value: 'с 2009', label: 'года на рынке' },
+      ],
+      cats,
+      projects: list,
+    };
+  }
+}
+</script>
+</body>
+</html>

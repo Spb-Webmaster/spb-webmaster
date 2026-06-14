@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Montserrat:wght@700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Golos Text',sans-serif;background:#fff;color:#191513;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    input,select,button,textarea{font-family:inherit}
+    ::selection{background:#FF5200;color:#fff}
+  </style>
+</helmet>
+
+<div data-screen-label="Контакты" style="background:#fff;width:100%;overflow:hidden;min-height:100vh;display:flex;flex-direction:column">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid rgba(25,21,19,0.08)">
+    <div style="max-width:1240px;margin:0 auto;padding:14px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:11px">
+        <svg width="30" height="32" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:20px;color:#FF5200;letter-spacing:-0.01em;white-space:nowrap">SPB-WEBMASTER</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;color:rgba(25,21,19,0.62);font-size:15px;font-weight:500">
+        <a href="Home.dc.html#services" style="transition:color .2s" style-hover="color:#FF5200">О студии</a>
+        <a href="Guarantees.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Гарантии</a>
+        <a href="Works.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Работы</a>
+        <a href="Contacts.dc.html" style="color:#FF5200">Контакты</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="tel:+79213975584" style="color:#191513;font-weight:600;font-size:15px;white-space:nowrap">+7 (921) 397-55-84</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <!-- INFO (dark) -->
+  <section style="position:relative;background:radial-gradient(820px circle at 92% 4%, rgba(255,82,0,0.2), transparent 56%),radial-gradient(620px circle at 0% 100%, rgba(255,82,0,0.1), transparent 50%),#191513;color:#FAF6F0;padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,80px);overflow:hidden">
+    <div style="position:absolute;top:50px;right:6%;width:120px;height:120px;border:2px solid rgba(255,82,0,0.25);border-radius:12px;transform:rotate(14deg)"></div>
+    <div style="position:absolute;top:86px;right:13%;width:120px;height:120px;border:2px solid rgba(250,246,240,0.08);border-radius:12px;transform:rotate(14deg)"></div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+      <div style="font-size:14px;color:rgba(250,246,240,0.5);font-weight:500"><a href="Home.dc.html" style="transition:color .2s" style-hover="color:#FF5200">Главная</a> &nbsp;/&nbsp; Контакты</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);margin-top:28px;align-items:start">
+
+        <!-- LEFT: heading + intro -->
+        <div>
+          <h1 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1.03;letter-spacing:-0.03em;color:#FAF6F0">Расскажите<br>о <span style="background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent">проекте</span></h1>
+          <p style="font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(250,246,240,0.7);max-width:42ch;margin-top:22px">Оставьте заявку или позвоните — свяжемся в течение рабочего дня, бесплатно оценим объём и предложим решение под ваш бюджет.</p>
+
+          <div style="display:flex;gap:30px;margin-top:36px;flex-wrap:wrap">
+            <sc-for list="{{ pledges }}" as="p" hint-placeholder-count="3">
+              <div>
+                <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:24px;background:linear-gradient(120deg,#FF5200,#FF9A4D);-webkit-background-clip:text;background-clip:text;color:transparent">{{ p.value }}</div>
+                <div style="font-size:13.5px;color:rgba(250,246,240,0.55);margin-top:4px;max-width:18ch">{{ p.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- RIGHT: contact cards -->
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
+            <a href="{{ c.href }}" style="display:flex;align-items:center;gap:16px;background:#221C18;border:1px solid rgba(250,246,240,0.1);border-radius:16px;padding:18px 20px;transition:border-color .2s,transform .15s,background .2s" style-hover="border-color:rgba(255,82,0,0.5);transform:translateX(3px);background:#2A221D">
+              <span style="flex:none;width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#FF5200,#FF8A3D);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px">{{ c.icon }}</span>
+              <span>
+                <span style="display:block;font-size:13px;color:rgba(250,246,240,0.5)">{{ c.label }}</span>
+                <span style="display:block;font-size:17px;font-weight:600;color:#FAF6F0;margin-top:2px">{{ c.value }}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM (white) -->
+  <section style="position:relative;flex:1;background:#fff;padding:clamp(48px,7vw,80px) 0 clamp(56px,8vw,96px);overflow:hidden">
+    <div style="position:absolute;bottom:40px;left:-30px;width:120px;height:120px;border:2px solid rgba(255,82,0,0.14);border-radius:12px;transform:rotate(-12deg)"></div>
+    <div style="max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+      <div style="position:relative;background:#fff;border:1px solid rgba(25,21,19,0.1);border-radius:24px;padding:clamp(26px,4vw,44px);box-shadow:0 24px 60px rgba(25,21,19,0.1)">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;color:#191513">Заявка на расчёт</h2>
+            <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:14px;margin-top:22px">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:rgba(25,21,19,0.55)">Ваше имя
+                <input value="{{ formName }}" onChange="{{ onName }}" placeholder="Иван" style="background:#fff;border:1.5px solid rgba(25,21,19,0.16);border-radius:13px;padding:15px 18px;color:#191513;font-size:16px;outline:none;transition:border-color .2s" style-focus="border-color:#FF5200"></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:rgba(25,21,19,0.55)">Телефон
+                <input value="{{ formPhone }}" onChange="{{ onPhone }}" placeholder="+7 (___) ___-__-__" style="background:#fff;border:1.5px solid rgba(25,21,19,0.16);border-radius:13px;padding:15px 18px;color:#191513;font-size:16px;outline:none;transition:border-color .2s" style-focus="border-color:#FF5200"></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:rgba(25,21,19,0.55)">Тип сайта
+                <select value="{{ formType }}" onChange="{{ onType }}" style="background:#fff;border:1.5px solid rgba(25,21,19,0.16);border-radius:13px;padding:15px 18px;color:#191513;font-size:16px;outline:none;transition:border-color .2s" style-focus="border-color:#FF5200">
+                  <option>Сайт-визитка</option>
+                  <option>Лендинг</option>
+                  <option>Сайт-каталог</option>
+                  <option>Интернет-магазин</option>
+                  <option>Пока не определился</option>
+                </select></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:rgba(25,21,19,0.55)">Комментарий
+                <textarea value="{{ formMsg }}" onChange="{{ onMsg }}" placeholder="Коротко о задаче" rows="3" style="background:#fff;border:1.5px solid rgba(25,21,19,0.16);border-radius:13px;padding:15px 18px;color:#191513;font-size:16px;outline:none;resize:vertical;transition:border-color .2s" style-focus="border-color:#FF5200"></textarea></label>
+              <button type="submit" style="background:linear-gradient(135deg,#FF5200,#FF7A2E);color:#fff;font-weight:600;font-size:16px;padding:16px 18px;border:none;border-radius:13px;cursor:pointer;box-shadow:0 10px 24px rgba(255,82,0,0.3);transition:transform .15s,box-shadow .2s;margin-top:4px" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,82,0,0.42)">Отправить заявку</button>
+              <p style="font-size:12.5px;color:rgba(25,21,19,0.45);line-height:1.45">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+            </form>
+          </div>
+        </sc-if>
+        <sc-if value="{{ sent }}">
+          <div style="text-align:center;padding:30px 10px">
+            <div style="width:60px;height:60px;border-radius:999px;background:linear-gradient(135deg,#FF5200,#FF8A3D);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px">✓</div>
+            <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;color:#191513">Заявка отправлена</h2>
+            <p style="font-size:15.5px;color:rgba(25,21,19,0.6);margin-top:12px;line-height:1.55;max-width:30ch;margin-left:auto;margin-right:auto">Спасибо! Мы свяжемся с вами в течение рабочего дня по указанному телефону.</p>
+            <button onClick="{{ reset }}" style="margin-top:24px;background:transparent;border:1px solid rgba(25,21,19,0.2);color:#191513;font-weight:600;font-size:14px;padding:12px 24px;border-radius:999px;cursor:pointer;transition:border-color .2s" style-hover="border-color:#FF5200">Отправить ещё одну</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#191513;color:rgba(250,246,240,0.6);padding:clamp(40px,6vw,60px) 0 32px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px">
+      <div style="display:flex;align-items:center;gap:11px">
+        <svg width="26" height="28" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14.4333C0.254261 12.4089 1.67504 8.5982 3.81392 6.08238C6.6108 2.79261 8.6897 0.75307 14.0292 0.500011C18.3008 0.297564 22.036 1.82519 23.3921 2.50001C25.5957 3.68095 29.2401 5.77871 30.2571 9.6252C31.2742 13.4717 31.2742 15.4456 30.2571 18.9884C29.2401 22.5312 25.6804 24.8087 23.3921 26.074C21.1037 27.3393 17.544 27.0863 15.0014 26.5802C12.4588 26.074 10.4247 22.5312 9.9162 21.2659C9.50506 20.2429 9.42632 18.5583 9.41125 17.9506C9.32146 17.8313 9.31234 17.7503 9.40768 17.7231C9.40768 17.7231 9.40768 17.8066 9.41125 17.9506C9.87541 18.5672 12.4954 20.2089 13.9844 20.7598C15.7614 21.4173 18.5611 21.772 20.8494 20.7598C20.8494 20.7598 24.6634 18.9884 25.1719 16.2047C25.6804 13.4211 25.1719 10.4628 23.3921 8.43836C21.6122 6.41389 20.3409 6.16673 18.5611 5.57626C16.7813 4.98578 15.0014 4.81708 13.4759 4.81708C11.9503 4.81708 10.679 4.81708 8.39063 6.08238C6.10228 7.34768 5.33949 8.10684 3.81392 9.6252C2.28835 11.1436 0 14.4333 0 14.4333Z" fill="#FF5200"></path><path d="M32 19.6317C31.8729 21.668 30.6934 25.5594 28.7161 28.2029C26.1305 31.6596 24.1953 33.3011 18.8821 33.8847C14.6314 34.3515 10.7774 33.2893 9.38179 32.6998C7.10857 31.6578 3.27909 28.8192 2.02332 25.0432C0.767546 21.2672 0.723207 20.56 1.51658 16.961C2.30995 13.362 5.72018 10.8683 7.92492 9.4636C10.1297 8.0589 13.6982 8.09084 16.2676 8.43836C18.8369 8.78588 20.6131 9.63866 21.5 11.5C22.3869 13.3614 22.3339 16.0991 22.3869 16.7047C22.4804 16.6716 22.484 16.8182 22.3869 16.7047C21.8851 16.118 19.1675 14.6419 17.6469 14.1844C15.8322 13.6383 12.5969 13.2505 10.4247 14.4333C10.4247 14.4333 7.09947 16.6143 6.76613 19.4241C6.43279 22.2338 6.54363 24.0018 8.44669 25.912C10.3498 27.8222 11.6978 29.0063 14.0292 29.6221C16.3606 30.238 17.9612 30.1963 19.6596 30.0331C21.358 29.8699 22.4047 29.6221 24.1482 28.4866C25.8917 27.351 27.0668 26.2769 28.4944 24.6669C29.922 23.0569 32 19.6317 32 19.6317Z" fill="#FF5200"></path></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:19px;color:#FF5200;white-space:nowrap">SPB-WEBMASTER</span>
+      </div>
+      <span style="font-size:13px;color:rgba(250,246,240,0.4)">© 2026 SPB-WEBMASTER · Санкт-Петербург</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name: '', phone: '', type: 'Лендинг', msg: '', sent: false };
+
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.transition = 'box-shadow .25s ease';
+      const onScroll = () => { header.style.boxShadow = window.scrollY > 8 ? '0 6px 24px rgba(25,21,19,0.09)' : 'none'; };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const rest = [...document.querySelectorAll('section, footer')];
+    rest.forEach((s) => { s.style.opacity = '0'; s.style.transform = 'translateY(28px)'; s.style.transition = 'opacity .7s ease, transform .7s ease'; });
+    const reveal = (s) => { s.dataset._shown = '1'; s.style.opacity = '1'; s.style.transform = 'none'; };
+    if (rest[0]) reveal(rest[0]);
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      let remaining = false;
+      rest.forEach((s) => { if (s.dataset._shown) return; const r = s.getBoundingClientRect(); if (r.top < vh * 0.9 && r.bottom > 0) reveal(s); else remaining = true; });
+      if (!remaining) { window.removeEventListener('scroll', onScroll2, true); window.removeEventListener('resize', check); }
+    };
+    const onScroll2 = () => check();
+    window.addEventListener('scroll', onScroll2, true);
+    window.addEventListener('resize', check);
+    check();
+    requestAnimationFrame(() => requestAnimationFrame(check));
+    setTimeout(check, 300);
+    setTimeout(() => rest.forEach(reveal), 4500);
+  }
+
+  renderVals() {
+    return {
+      contacts: [
+        { icon: '☎', label: 'Телефон', value: '+7 (921) 397-55-84', href: 'tel:+79213975584' },
+        { icon: '✉', label: 'Почта', value: 'hello@spb-webmaster.ru', href: 'mailto:hello@spb-webmaster.ru' },
+        { icon: '✆', label: 'Мессенджеры', value: 'Telegram · WhatsApp', href: '#' },
+      ],
+      pledges: [
+        { value: '1 день', label: 'на ответ по заявке' },
+        { value: 'Бесплатно', label: 'оценка проекта' },
+        { value: 'Договор', label: 'с фиксированной ценой' },
+      ],
+      formName: this.state.name,
+      formPhone: this.state.phone,
+      formType: this.state.type,
+      formMsg: this.state.msg,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      onType: (e) => this.setState({ type: e.target.value }),
+      onMsg: (e) => this.setState({ msg: e.target.value }),
+      onSubmit: (e) => { e.preventDefault(); if (this.state.name.trim() && this.state.phone.trim()) this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false, name: '', phone: '', msg: '' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

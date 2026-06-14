@@ -1,0 +1,23 @@
+@import '@fontsource-variable/unbounded';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/golos-text';
+
+/* @import 'pagination.scss'; */
+@import 'general-style/paddind.scss';
+@import 'general-style/width.scss';
+@import 'fancybox/fancubox6.scss';
+@import 'message/flach_message.scss';
+@import 'loader_map.css';
+/* @import 'trix/trix.scss'; */
+@import 'components/form/form-loader.scss';
+/* @import 'components/form/form-input.scss';
+ @import 'components/form/form-blue-component.scss';
+ @import 'buttons/buttons.scss'; */
+@import 'templates/axeld/breadcrumbs.scss';
+@import 'templates/axeld/content.scss';
+@import 'templates/axeld/header.scss';
+@import 'components/menu/top_menu.scss';
+@import 'components/select/mz-select.scss';
+@import 'templates/axeld/footer.scss';
+@import 'style.scss';
+

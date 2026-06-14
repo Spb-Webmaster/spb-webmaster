@@ -1,0 +1,65 @@
+// ============================================================
+// SPB-WEBMASTER — SCSS VARIABLES
+// ============================================================
+
+// ── Accent (orange brand) ──
+$spb-accent:          #FF5200;
+$spb-accent-grad:     #FF7A2E;   // gradient endpoint
+$spb-accent-mid:      #FF8A3D;   // icons, step icons
+$spb-accent-light:    #FF9A4D;   // gradient highlight
+$spb-accent-orange:   #FF7A3D;   // badge text, process label
+$spb-accent-deep:     #E03E00;   // tech-card dark side
+$spb-accent-pale:     #FFB077;   // step-n gradient
+
+// ── Dark ──
+$spb-dark:            #191513;
+$spb-dark-2:          #221C18;   // step-card, contact-card bg
+$spb-dark-3:          #241D18;   // hero section gradient stop
+
+// ── Light / Cream ──
+$spb-cream:           #FAF6F0;
+$spb-warm-bg:         #F2EDE6;   // about / tech sections
+$spb-warm-bg-light:   #FBF8F4;   // home body, included section
+$spb-stat-bg:         #F8F4EE;   // hero stat cards
+
+// ── Typography ──
+$spb-font-main:       'Golos Text Variable', sans-serif;
+$spb-font-heading:    'Montserrat Variable', sans-serif;
+$spb-font-accent:     'Unbounded Variable', sans-serif;
+
+// ============================================================
+// CSS CUSTOM PROPERTIES (legacy palette, kept as-is)
+// ============================================================
+:root {
+  /* Основные цвета сайта */
+  --color:        #282828;
+  --color-red:    #EF533F;
+  --color-ccc:    #CCCCCC;
+  --color-grey:   #667085;
+  --color-blue:   #095C9A;
+  --color-blue2:  #03a9f4;
+  --color-green:  #0f6567;
+  --color-yellow: #FF931E;
+  --color-orange: #FF732C;
+  --color-indigo: #575EEF;
+
+  /* Цвета дизайна главной страницы */
+  --navy:   #152040;
+  --navy2:  #1d2f57;
+  --gold:   #c4963a;
+  --gold-lt:#e6b95a;
+  --bg:     #ffffff;
+  --bg2:    #f5f3ee;
+  --text:   #1a1a2e;
+  --muted:  #6b7280;
+  --border: #e2ddd4;
+  --radius: 4px;
+  --serif:  'Playfair Display', Georgia, serif;
+  --sans:   'Manrope', sans-serif;
+
+  /* SPB Brand */
+  --spb-accent:       #FF5200;
+  --spb-dark:         #191513;
+  --spb-cream:        #FAF6F0;
+  --spb-warm-bg:      #F2EDE6;
+}
