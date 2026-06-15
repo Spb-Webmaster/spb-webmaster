@@ -20,16 +20,27 @@ Fancybox.bind('[data-fancybox="gallery"]', {
     dragToClose: true,
 });
 
-// Открытие обложки проекта в модалке — только на мобильных
+// Открытие обложки проекта в галерее — только на мобильных
 document.addEventListener('click', function (e) {
     if (window.innerWidth > 768) return;
     var cover = e.target.closest('.w-card-cover');
     if (!cover) return;
-    var img = cover.querySelector('.w-cover-img');
-    if (!img || !img.src) return;
-    Fancybox.show([{ src: img.src, type: 'image' }], {
+
+    var allCovers = Array.from(
+        document.querySelectorAll('#w-cards .w-card:not([style*="display: none"]) .w-card-cover')
+    );
+
+    var items = allCovers.map(function (c) {
+        var img = c.querySelector('.w-cover-img');
+        return { src: img ? img.src : '', type: 'image' };
+    }).filter(function (item) { return item.src; });
+
+    var startIndex = allCovers.indexOf(cover);
+
+    Fancybox.show(items, {
         animated: true,
         dragToClose: true,
+        startIndex: startIndex < 0 ? 0 : startIndex,
     });
 });
 
