@@ -3,7 +3,6 @@
     'formId' => null,
     'wrapperId' => null,
     'responseId' => null,
-    'resetId' => null,
     'endpoint' => '/call-me-blue',
     'title' => null,
     'subtitle' => null,
@@ -15,7 +14,6 @@
     'phonePlaceholder' => null,
     'responseTitle' => 'Заявка отправлена',
     'responseText' => 'Спасибо! Мы свяжемся с вами в течение рабочего дня.',
-    'responseButton' => 'Отправить ещё одну',
     'typeOptions' => [
         ['value' => 'Сайт-визитка', 'label' => 'Сайт-визитка'],
         ['value' => 'Лендинг', 'label' => 'Лендинг'],
@@ -45,12 +43,6 @@
         'contacts' => 'c-success-wrapper',
         'modal' => 'callback-modal-response',
         default => 'spb-success-wrapper',
-    };
-
-    $resetId ??= match ($variant) {
-        'contacts' => 'c-form-reset',
-        'modal' => null,
-        default => 'spb-form-reset',
     };
 
     $title ??= match ($variant) {
@@ -198,10 +190,8 @@
         <x-form.form-response
             :variant="$variant"
             :id="$responseId"
-            :reset-id="$resetId"
             :title="$responseTitle"
             :text="$responseText"
-            :button="$responseButton"
         />
 
         <x-form.form-loader class="callback-form__loader" />

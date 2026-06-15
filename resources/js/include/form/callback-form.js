@@ -112,6 +112,8 @@ function showResponse(form) {
     const content = findContent(form);
     const response = findResponse(form);
 
+    form.dataset.submitted = 'true';
+
     if (content) {
         content.style.display = 'none';
     }
@@ -119,24 +121,6 @@ function showResponse(form) {
     if (response) {
         response.classList.add('active');
         response.style.display = 'block';
-    }
-}
-
-function resetForm(form) {
-    const content = findContent(form);
-    const response = findResponse(form);
-
-    form.reset();
-    clearErrors(form);
-    setLoading(form, false);
-
-    if (response) {
-        response.classList.remove('active');
-        response.style.display = 'none';
-    }
-
-    if (content) {
-        content.style.display = '';
     }
 }
 
@@ -148,6 +132,10 @@ async function handleSubmit(event) {
     }
 
     event.preventDefault();
+
+    if (form.dataset.submitted === 'true') {
+        return;
+    }
 
     if (!validate(form)) {
         return;
@@ -212,23 +200,10 @@ function handleFocus(event) {
     }
 }
 
-function handleReset(event) {
-    const button = event.target.closest('[data-callback-reset]');
-    const shell = button?.closest('[data-callback-form-shell]');
-    const form = shell?.querySelector(FORM_SELECTOR);
-
-    if (!form) {
-        return;
-    }
-
-    resetForm(form);
-}
-
 export function callbackForm() {
     imask();
     document.addEventListener('submit', handleSubmit);
     document.addEventListener('input', handleInput);
     document.addEventListener('change', handleInput);
-    document.addEventListener('click', handleReset);
     document.addEventListener('focusin', handleFocus);
 }

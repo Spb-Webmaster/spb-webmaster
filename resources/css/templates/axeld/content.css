@@ -1453,20 +1453,28 @@ section {
   line-height: 1.5;
 }
 
-.cta-reset {
-  margin-top: 22px;
-  background: transparent;
-  border: 1px solid rgba(25, 21, 19, 0.2);
-  color: #191513;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 11px 22px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: border-color 0.2s;
+.cta-success-contacts {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
-.cta-reset:hover {
+
+.cta-success-contact {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #191513;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid rgba(25, 21, 19, 0.2);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cta-success-contact:hover {
   border-color: #FF5200;
+  color: #FF5200;
 }
 
 .s-g-hero {
@@ -2229,20 +2237,28 @@ textarea.c-form-input {
   margin-right: auto;
 }
 
-.c-success-reset {
-  margin-top: 24px;
-  background: transparent;
-  border: 1px solid rgba(25, 21, 19, 0.2);
-  color: #191513;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: border-color 0.2s;
+.c-success-contacts {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
 }
-.c-success-reset:hover {
+
+.c-success-contact {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #191513;
+  text-decoration: none;
+  padding: 11px 22px;
+  border: 1px solid rgba(25, 21, 19, 0.2);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.c-success-contact:hover {
   border-color: #FF5200;
+  color: #FF5200;
 }
 
 .s-w-hero {

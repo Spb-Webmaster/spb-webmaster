@@ -8,7 +8,7 @@
 
 @section('content')
 
-{{-- HERO222 --}}
+{{-- HERO --}}
 <section class="s-hero">
   <div class="pg-inner">
     <div class="hero-grid">
