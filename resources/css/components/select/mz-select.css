@@ -128,6 +128,16 @@
   transform: translateY(0);
 }
 
+.mz-select.is-open--up .mz-select__dropdown {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform: translateY(6px);
+}
+
+.mz-select.is-open.is-open--up .mz-select__dropdown {
+  transform: translateY(0);
+}
+
 .mz-select__option {
   padding: 11px 18px;
   font-size: 15px;

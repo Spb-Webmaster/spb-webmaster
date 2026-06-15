@@ -117,6 +117,15 @@ function syncSelectedState(select, dropdown) {
 }
 
 function setOpen(root, trigger, isOpen) {
+    if (isOpen) {
+        const dropdown = root.querySelector('.mz-select__dropdown');
+        const rect = root.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const dropHeight = Math.min((dropdown ? dropdown.scrollHeight : 0) + 14, 252);
+        root.classList.toggle('is-open--up', spaceBelow < dropHeight);
+    } else {
+        root.classList.remove('is-open--up');
+    }
     root.classList.toggle(OPEN_CLASS, isOpen);
     trigger.setAttribute('aria-expanded', String(isOpen));
 }

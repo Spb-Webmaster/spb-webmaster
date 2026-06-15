@@ -107,6 +107,17 @@ $mz-text:        $spb-dark;
     transform: translateY(0);
 }
 
+// Открывается вверх — когда снизу недостаточно места
+.mz-select.is-open--up .mz-select__dropdown {
+    top: auto;
+    bottom: calc(100% + 6px);
+    transform: translateY(6px);
+}
+
+.mz-select.is-open.is-open--up .mz-select__dropdown {
+    transform: translateY(0);
+}
+
 // ——— Пункты списка ———
 .mz-select__option {
     padding: 11px 18px;
