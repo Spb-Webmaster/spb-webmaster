@@ -218,7 +218,7 @@
     <div class="g-header">
       <div>
         <div class="sec-label sec-label--white">Гарантии и качество</div>
-        <h2 class="g-h2">{{ $home['guarantees_h2'] ?? 'Вы защищены на каждом этапе' }}</h2>
+        <h2 class="g-h2">{!!  $home['guarantees_h2'] ?? 'Вы защищены на каждом этапе' !!}</h2>
       </div>
       <p class="g-desc">{{ $home['guarantees_desc'] ?? 'Работаем по договору и отвечаем за результат. Сайт остаётся вашим, исходники передаём вам.' }}</p>
     </div>
