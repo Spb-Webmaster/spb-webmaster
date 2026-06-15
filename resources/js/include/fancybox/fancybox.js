@@ -20,6 +20,19 @@ Fancybox.bind('[data-fancybox="gallery"]', {
     dragToClose: true,
 });
 
+// Открытие обложки проекта в модалке — только на мобильных
+document.addEventListener('click', function (e) {
+    if (window.innerWidth > 768) return;
+    var cover = e.target.closest('.w-card-cover');
+    if (!cover) return;
+    var img = cover.querySelector('.w-cover-img');
+    if (!img || !img.src) return;
+    Fancybox.show([{ src: img.src, type: 'image' }], {
+        animated: true,
+        dragToClose: true,
+    });
+});
+
 /** получаем csrf **/
 const metaElements = document.querySelectorAll('meta[name="csrf-token"]');
 const csrf = metaElements.length > 0 ? metaElements[0].content : "";

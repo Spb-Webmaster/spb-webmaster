@@ -2418,6 +2418,23 @@ textarea.c-form-input {
   overflow: hidden;
   background: #F2EDE6;
 }
+@media (max-width: 768px) {
+  .w-card-cover {
+    cursor: zoom-in;
+  }
+  .w-card-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(25, 21, 19, 0);
+    transition: background 0.2s;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .w-card-cover:active::after {
+    background: rgba(25, 21, 19, 0.12);
+  }
+}
 
 .w-cover-img {
   position: absolute;

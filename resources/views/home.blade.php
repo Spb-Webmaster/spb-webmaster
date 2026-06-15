@@ -239,7 +239,7 @@
   <div class="included-inner">
     <div class="included-left">
       <div class="sec-label">Без доплат</div>
-      <h2 class="included-h2">{{ $home['included_h2'] ?? 'Входит в стоимость любого сайта' }}</h2>
+      <h2 class="included-h2">{!!   $home['included_h2'] ?? 'Входит в стоимость любого сайта' !!}</h2>
       <p class="included-desc">{{ $home['included_desc'] ?? 'Каждый проект получает базовую внутреннюю оптимизацию и адаптив. Вам не придётся доплачивать за то, что должно работать по умолчанию.' }}</p>
       <a href="#cta" class="included-btn">Обсудить проект</a>
     </div>

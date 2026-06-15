@@ -228,7 +228,15 @@ document.addEventListener('DOMContentLoaded', function () {
       var projectId = btn.dataset.project;
       var src = btn.dataset.src;
       var cover = document.querySelector('.w-cover-img[data-project="' + projectId + '"]');
-      if (cover) cover.src = src;
+      if (cover) {
+        cover.src = src;
+        var picture = cover.closest('picture');
+        if (picture) {
+          picture.querySelectorAll('source').forEach(function (source) {
+            source.srcset = src;
+          });
+        }
+      }
       document.querySelectorAll('.w-thumb[data-project="' + projectId + '"]').forEach(function (t) {
         t.classList.remove('w-thumb--active');
       });

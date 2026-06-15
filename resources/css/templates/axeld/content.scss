@@ -2473,6 +2473,24 @@ textarea.c-form-input {
     aspect-ratio: 16/10;
     overflow: hidden;
     background: $spb-warm-bg;
+
+    @media (max-width: 768px) {
+        cursor: zoom-in;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba($spb-dark, 0);
+            transition: background .2s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        &:active::after {
+            background: rgba($spb-dark, 0.12);
+        }
+    }
 }
 
 .w-cover-img {
