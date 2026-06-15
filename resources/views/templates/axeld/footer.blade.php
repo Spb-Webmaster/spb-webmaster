@@ -27,15 +27,15 @@
       <div>
         <div class="spb-footer__title">Контакты</div>
         <div class="spb-footer__links">
-          <a href="tel:+79213975584" class="spb-footer-link">setting-phone</a>
-          <a href="mailto:hello@spb-webmaster.ru" class="spb-footer-link">setting-email</a>
-          <a href="#cta" class="spb-footer-link">Оставить заявку</a>
+          <a href="tel:+{{ phone($settings['phone'] ?? '') }}" class="spb-footer-link">{{ format_phone(phone($settings['phone'] ?? '')) }}</a>
+          <a href="mailto:{{ $settings['email'] ?? '' }}" class="spb-footer-link">{{ $settings['email'] ?? '' }}</a>
+          <a href="#" class="spb-footer-link open-fancybox" data-form="call_me">Оставить заявку</a>
         </div>
       </div>
     </div>
     <div class="spb-footer__bottom">
-      <span>© {!! date("Y") !!} setting-copy </span>
-      <span>Санкт-Петербург</span>
+      <span>© {!! date("Y") !!} {{ $settings['copy'] ?? '' }}</span>
+      <span>{{ $settings['city'] ?? '' }}</span>
     </div>
   </div>
 </footer>

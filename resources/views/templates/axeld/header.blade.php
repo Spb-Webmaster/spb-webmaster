@@ -13,8 +13,8 @@
     </nav>
 
     <div class="spb-header-actions">
-      <a href="setting-phone" class="spb-header-phone">setting-phone</a>
-      <a href="{{ route('contacts') }}" class="spb-btn-primary">Оставить заявку</a>
+      <a href="tel:+{{ phone($settings['phone'] ?? '') }}" class="spb-header-phone">{{ format_phone(phone($settings['phone'] ?? '')) }}</a>
+      <a href="#" class="spb-btn-primary open-fancybox" data-form="call_me">Оставить заявку</a>
     </div>
 
     <button id="spb-burger" aria-label="Открыть меню" aria-expanded="false">
@@ -91,7 +91,7 @@
     <x-menu.site-menu variant="drawer" />
   </nav>
   <div class="spb-drawer-footer">
-    <a href="setting-phone" class="spb-drawer-phone">setting-phone</a>
-    <a href="{{ route('contacts') }}" class="spb-drawer-cta">Оставить заявку</a>
+    <a href="tel:+{{ phone($settings['phone'] ?? '') }}" class="spb-drawer-phone">{{ format_phone(phone($settings['phone'] ?? '')) }}</a>
+    <a href="#" class="spb-drawer-cta open-fancybox" data-form="call_me">Оставить заявку</a>
   </div>
 </aside>

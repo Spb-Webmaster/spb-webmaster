@@ -1,5 +1,7 @@
 .form-form_loader {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
@@ -28,6 +30,42 @@
   100% {
     box-shadow: 21.3px 0 0 0, 42.6px 0 0 3.4px, 63.9px 0 0 7.8px;
   }
+}
+
+[data-callback-form-shell] {
+  position: relative;
+}
+
+.callback-form--home {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.callback-form--home > [data-callback-content],
+.callback-form--home > [data-callback-response] {
+  width: 100%;
+}
+
+.callback-form__loader {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.callback-form--home .callback-form__loader {
+  inset: calc(-1 * clamp(28px, 4vw, 48px));
+  width: auto;
+  height: auto;
+}
+
+.callback-form--contacts .callback-form__loader {
+  inset: calc(-1 * clamp(26px, 4vw, 44px));
+  width: auto;
+  height: auto;
+  border-radius: 24px;
 }
 
 /*# sourceMappingURL=form-loader.css.map */

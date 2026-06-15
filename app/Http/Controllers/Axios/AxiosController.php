@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Axios;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CallMeBlueRequest;
+use App\Jobs\Form\CallMeBlueJob;
 use Illuminate\Http\Request;
 
 class AxiosController extends Controller
@@ -16,9 +18,17 @@ class AxiosController extends Controller
         return view('axios.forms.error.error_form');
     }
 
-    public function callMeBlue(Request $request)
+    public function callMeBlue(CallMeBlueRequest $request)
     {
-        // stub — заглушка
+        $data = array_filter([
+            'Имя'       => $request->input('name'),
+            'Телефон'   => $request->input('phone'),
+            'Тип'       => $request->input('type'),
+            'Сообщение' => $request->input('msg'),
+        ]);
+
+        CallMeBlueJob::dispatch($data);
+
         return response()->json(['response' => 'ok']);
     }
 }

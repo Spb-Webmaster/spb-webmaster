@@ -208,6 +208,30 @@ padding: 10px 0 0 0;
     }
 }
 
+.app_input_group { display: flex; flex-direction: column; gap: 4px; }
+.app_input_error { font-size: 12px; color: $colorRed; display: block; &:empty { display: none; } }
+
+.callback-form-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.callback-form-modal__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+.callback-form-modal__note {
+    margin-top: 0;
+    font-size: 12.5px;
+    color: rgba($color, 0.45);
+    line-height: 1.45;
+}
+
 @media screen and (max-width: 742px) {
     .f-html {
         width: 96%;

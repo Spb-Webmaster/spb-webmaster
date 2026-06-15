@@ -3,6 +3,9 @@ import './bootstrap';
 import IMask from 'imask';
 window.IMask = IMask;
 
+import { mzSelect } from './include/select/mz-select';
+mzSelect();
+
 
 
 
@@ -12,7 +15,8 @@ import 'swiper/css/bundle';
 
 import './script';
 import './include/fancybox/fancybox';
-import './include/form_async/async';
+import {callbackForm} from './include/form/callback-form';
 import {cabinetMessageDeleteInit} from './include/fancybox/cabinet_message';
-cabinetMessageDeleteInit();
 
+callbackForm();
+cabinetMessageDeleteInit();

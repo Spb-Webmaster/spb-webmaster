@@ -15,6 +15,10 @@ class FancyBoxController extends Controller
             return view('fancybox.forms.test');
         }
 
+        if ($request->template === 'call_me') {
+            return view('fancybox.forms.call_me');
+        }
+
         return view('fancybox.forms.error.error_form');
     }
 }

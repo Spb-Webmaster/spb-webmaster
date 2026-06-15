@@ -1228,7 +1228,6 @@ section {
   background: #fff;
   border: 1px solid rgba(25, 21, 19, 0.08);
   border-radius: 28px;
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
@@ -1237,8 +1236,15 @@ section {
 .cta-img-col {
   position: relative;
   min-height: clamp(360px, 42vw, 560px);
+  overflow: hidden;
+  border-radius: 28px 0 0 28px;
 }
 
+@media (max-width: 640px) {
+  .cta-img-col {
+    border-radius: 28px 28px 0 0;
+  }
+}
 .cta-img {
   position: absolute;
   inset: 0;
@@ -1350,6 +1356,7 @@ section {
 }
 
 .cta-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1367,6 +1374,24 @@ section {
 .spb-form-input:focus {
   border-color: #FF5200 !important;
   outline: none;
+}
+.spb-form-input._error {
+  border-color: #d63031 !important;
+}
+
+.spb-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spb-form-error {
+  font-size: 12px;
+  color: #d63031;
+  display: block;
+}
+.spb-form-error:empty {
+  display: none;
 }
 
 .spb-form-btn {
@@ -2076,7 +2101,7 @@ section {
 .c-form-wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 48px);
+  padding: 0;
   position: relative;
 }
 
@@ -2097,6 +2122,7 @@ section {
 }
 
 .c-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -2128,6 +2154,19 @@ section {
 
 textarea.c-form-input {
   resize: vertical;
+}
+
+.c-form-input._error {
+  border-color: #d63031 !important;
+}
+
+.c-form-error {
+  font-size: 12px;
+  color: #d63031;
+  display: block;
+}
+.c-form-error:empty {
+  display: none;
 }
 
 .c-form-btn {
@@ -2519,6 +2558,14 @@ textarea.c-form-input {
 .w-cta-btn:hover {
   background: #ff6a26;
   transform: translateY(-2px);
+}
+
+@media (max-width: 794px) {
+  .c-form-wrap {
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 /*# sourceMappingURL=content.css.map */

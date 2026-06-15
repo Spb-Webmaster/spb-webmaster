@@ -1,6 +1,5 @@
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import {asyncExecution} from "../form_async/async_execution";
 import {scrollCabinetMessages} from "./cabinet_message";
 
 
@@ -74,7 +73,6 @@ async  function openFancyBox(e) {
             );
 
 
-        asyncExecution();       // соберем эту форму
         scrollCabinetMessages(); // скроллим до последнего сообщения
 
     } catch (err) {

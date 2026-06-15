@@ -37,21 +37,21 @@
 
       {{-- Правая: карточки контактов --}}
       <div class="c-cards">
-        <a href="setting-phone" class="c-card">
+        <a href="tel:+{{ phone($settings['phone'] ?? '') }}" class="c-card">
           <span class="c-card-icon">☎</span>
           <span>
             <span class="c-card-lbl">Телефон</span>
-            <span class="c-card-val">setting-phone</span>
+            <span class="c-card-val">{{ format_phone(phone($settings['phone'] ?? '')) }}</span>
           </span>
         </a>
-        <a href="{{ 'mailto:' . ($c['email'] ?? 'setting-email') }}" class="c-card">
+        <a href="mailto:{{ $settings['email'] ?? '' }}" class="c-card">
           <span class="c-card-icon">✉</span>
           <span>
             <span class="c-card-lbl">Почта</span>
-            <span class="c-card-val">setting-email</span>
+            <span class="c-card-val">{{ $settings['email'] ?? '' }}</span>
           </span>
         </a>
-        <a href="setting-telegram" class="c-card">
+        <a href="{{ $settings['telegram'] ?? '#' }}" class="c-card">
           <span class="c-card-icon">✆</span>
           <span>
             <span class="c-card-lbl">Мессенджеры</span>
@@ -69,42 +69,17 @@
   <div class="c-form-deco"></div>
   <div class="c-form-wrap">
     <div class="c-form-card">
-
-      <div id="c-form-wrapper">
-        <h2 class="c-form-h2">Заявка на расчёт</h2>
-        <form id="c-contact-form" class="c-form">
-          <label class="c-form-field">Ваше имя
-            <input type="text" name="name" placeholder="Иван" class="c-form-input" required>
-          </label>
-          <label class="c-form-field">Телефон
-            <input type="tel" name="phone" placeholder="+7 или +44..." class="c-form-input imask" required>
-          </label>
-          <div class="c-form-field">Тип сайта
-            <div class="mz-select" data-mz-select>
-              <select name="type">
-                <option value="" disabled selected>Выберите тип сайта</option>
-                <option value="business-card">Сайт-визитка</option>
-                <option value="landing">Лендинг</option>
-                <option value="catalog">Сайт-каталог</option>
-                <option value="shop">Интернет-магазин</option>
-                <option value="unknown">Пока не определился</option>
-              </select>
-            </div>
-          </div>
-          <label class="c-form-field">Комментарий
-            <textarea name="msg" placeholder="Коротко о задаче" rows="3" class="c-form-input"></textarea>
-          </label>
-          <button type="submit" class="c-form-btn">Отправить заявку</button>
-          <p class="c-form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
-        </form>
-      </div>
-
-      <div id="c-success-wrapper" class="c-success">
-        <div class="c-success-icon">✓</div>
-        <h2 class="c-success-h2">Заявка отправлена</h2>
-        <p class="c-success-p">Спасибо! Мы свяжемся с вами в течение рабочего дня по указанному телефону.</p>
-        <button id="c-form-reset" class="c-success-reset">Отправить ещё одну</button>
-      </div>
+      <x-form.callback-form
+          variant="contacts"
+          form-id="c-contact-form"
+          wrapper-id="c-form-wrapper"
+          response-id="c-success-wrapper"
+          reset-id="c-form-reset"
+          title="Заявка на расчёт"
+          :show-message="true"
+          response-title="Заявка отправлена"
+          response-text="Спасибо! Мы свяжемся с вами в течение рабочего дня по указанному телефону."
+      />
 
     </div>
   </div>
@@ -177,44 +152,5 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () { sections.forEach(reveal); }, 4500);
   }
 });
-
-(function () {
-  var form       = document.getElementById('c-contact-form');
-  var formWrap   = document.getElementById('c-form-wrapper');
-  var successWrap = document.getElementById('c-success-wrapper');
-  var resetBtn   = document.getElementById('c-form-reset');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name  = form.querySelector('input[name="name"]').value.trim();
-    var phone = form.querySelector('input[name="phone"]').value.trim();
-    var type  = form.querySelector('select[name="type"]').value;
-    var msg   = form.querySelector('textarea[name="msg"]').value.trim();
-    if (!name || !phone) return;
-    var btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Отправляем...';
-    window.axios.post('/call-me-blue', { name: name, phone: phone, type: type, msg: msg })
-      .then(function (response) {
-        if (response.data.response === 'ok') {
-          formWrap.style.display = 'none';
-          successWrap.style.display = 'block';
-        }
-      })
-      .catch(function () {
-        btn.disabled = false;
-        btn.textContent = 'Отправить заявку';
-      });
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function () {
-      form.reset();
-      successWrap.style.display = 'none';
-      formWrap.style.display = 'block';
-    });
-  }
-})();
 </script>
 @endpush

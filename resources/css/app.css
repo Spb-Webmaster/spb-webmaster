@@ -10,9 +10,9 @@
 @import 'loader_map.css';
 /* @import 'trix/trix.scss'; */
 @import 'components/form/form-loader.scss';
-/* @import 'components/form/form-input.scss';
- @import 'components/form/form-blue-component.scss';
- @import 'buttons/buttons.scss'; */
+/* @import 'components/form/form-input.scss'; */
+@import 'components/form/form-blue-component.scss';
+/* @import 'buttons/buttons.scss'; */
 @import 'templates/axeld/breadcrumbs.scss';
 @import 'templates/axeld/content.scss';
 @import 'templates/axeld/header.scss';

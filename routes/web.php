@@ -33,6 +33,6 @@ Route::controller(FancyBoxController::class)->group(function () {
 /** Axios async forms **/
 Route::controller(AxiosController::class)->group(function () {
     Route::post('/upload-form-async', 'async');
-    Route::post('/call-me-blue', 'callMeBlue');
+    Route::post('/call-me-blue', 'callMeBlue')->middleware('throttle:10,10');
 });
 /** ///Axios async forms **/

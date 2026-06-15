@@ -270,36 +270,24 @@
           </div>
           <h2 class="cta-h2">Расскажите о проекте</h2>
           <p class="cta-p">Оставьте заявку — свяжемся в течение рабочего дня, бесплатно оценим объём и предложим решение.</p>
-          <a href="tel:+79213975584" class="cta-phone">
+          <a href="tel:+{{ phone($settings['phone'] ?? '') }}" class="cta-phone">
             <span class="cta-phone-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z" fill="#fff"/></svg>
-            </span>+7 (921) 397-55-84
+            </span>{{ format_phone(phone($settings['phone'] ?? '')) }}
           </a>
         </div>
       </div>
       <div class="cta-form-col">
-        <div id="spb-form-wrapper">
-          <form id="spb-contact-form" class="cta-form">
-            <div class="cta-form-title">Бесплатный расчёт проекта</div>
-            <input type="text" name="name" placeholder="Ваше имя" class="spb-form-input" required>
-            <input type="tel" name="phone" placeholder="Телефон" class="spb-form-input imask" required>
-            <select name="type" class="spb-form-input">
-              <option>Сайт-визитка</option>
-              <option>Лендинг</option>
-              <option>Сайт-каталог</option>
-              <option>Интернет-магазин</option>
-              <option>Пока не определился</option>
-            </select>
-            <button type="submit" class="spb-form-btn">Отправить заявку</button>
-            <p class="cta-form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
-          </form>
-        </div>
-        <div id="spb-success-wrapper" class="cta-success">
-          <div class="cta-success-icon">✓</div>
-          <h3 class="cta-success-h3">Заявка отправлена</h3>
-          <p class="cta-success-p">Спасибо! Мы свяжемся с вами в течение рабочего дня.</p>
-          <button id="spb-form-reset" class="cta-reset">Отправить ещё одну</button>
-        </div>
+        <x-form.callback-form
+            variant="home"
+            form-id="spb-contact-form"
+            wrapper-id="spb-form-wrapper"
+            response-id="spb-success-wrapper"
+            reset-id="spb-form-reset"
+            title="Бесплатный расчёт проекта"
+            response-title="Заявка отправлена"
+            response-text="Спасибо! Мы свяжемся с вами в течение рабочего дня."
+        />
       </div>
     </div>
   </div>
@@ -388,43 +376,5 @@ document.addEventListener('DOMContentLoaded', function () {
   checkSections();
   setTimeout(function () { rest.forEach(reveal); }, 4500);
 });
-
-(function () {
-  var form = document.getElementById('spb-contact-form');
-  var formWrapper = document.getElementById('spb-form-wrapper');
-  var successWrapper = document.getElementById('spb-success-wrapper');
-  var resetBtn = document.getElementById('spb-form-reset');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = form.querySelector('input[name="name"]').value.trim();
-    var phone = form.querySelector('input[name="phone"]').value.trim();
-    var type = form.querySelector('select[name="type"]').value;
-    if (!name || !phone) return;
-    var submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправляем...';
-    window.axios.post('/call-me-blue', { name: name, phone: phone, type: type })
-      .then(function (response) {
-        if (response.data.response === 'ok') {
-          formWrapper.style.display = 'none';
-          successWrapper.style.display = 'block';
-        }
-      })
-      .catch(function () {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Отправить заявку';
-      });
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function () {
-      form.reset();
-      successWrapper.style.display = 'none';
-      formWrapper.style.display = 'block';
-    });
-  }
-})();
 </script>
 @endpush
