@@ -32,6 +32,9 @@
     </main>
 </div><!--.content_-->
 @include('templates.axeld.footer')
+@if(!empty($settings['yandex_metrika']))
+    {!! $settings['yandex_metrika'] !!}
+@endif
 @stack('scripts')
 </body>
 </html>
