@@ -143,7 +143,10 @@
           <div class="about-photo-ring"></div>
           <div class="about-photo-box1"></div>
           <div class="about-photo-box2"></div>
-          <img src="{{ $aboutPhotoUrl }}" alt="Специалист студии Spb-Webmaster за работой" class="about-photo">
+          <picture>
+            @if($aboutPhotoWebp)<source type="image/webp" srcset="{{ $aboutPhotoWebp }}">@endif
+            <img src="{{ $aboutPhotoUrl }}" alt="Специалист студии Spb-Webmaster за работой" class="about-photo" loading="lazy" width="1403" height="1121">
+          </picture>
           <div class="about-years-badge">
             <span class="about-years-num">{{ $home['about_years'] ?? 25 }}</span>
             <span class="about-years-text">{{ $home['about_years_text'] ?? 'лет создаём сайты в Санкт-Петербурге' }}</span>
@@ -182,7 +185,10 @@
       <div class="tech-card">
         <div class="tech-card-deco1"></div>
         <div class="tech-card-deco2"></div>
-        <img src="{{ $laravelImageUrl }}" alt="Laravel" class="tech-logo">
+        <picture>
+          @if($laravelImageWebp)<source type="image/webp" srcset="{{ $laravelImageWebp }}">@endif
+          <img src="{{ $laravelImageUrl }}" alt="Laravel" class="tech-logo" loading="lazy" width="84" height="84">
+        </picture>
         <h3 class="tech-card-h3">{{ $home['tech_laravel_title'] ?? 'Готовый конструктор, а не стройка с нуля' }}</h3>
         <p class="tech-card-p">{{ $home['tech_laravel_desc'] ?? 'Представьте дом из готовых стен, крыши и инженерных систем вместо самодельных кирпичей. Laravel даёт такие «детали» — мы собираем из них именно то, что нужно вашему бизнесу.' }}</p>
         <div class="tech-benefits">
@@ -261,7 +267,10 @@
   <div class="pg-inner">
     <div class="cta-card">
       <div class="cta-img-col">
-        <img src="{{ $contactPhotoUrl }}" alt="Консультант студии Spb-Webmaster" class="cta-img">
+        <picture>
+          <source type="image/webp" srcset="{{ $contactPhotoWebp }}">
+          <img src="{{ $contactPhotoUrl }}" alt="Консультант студии Spb-Webmaster" class="cta-img" loading="lazy" width="1536" height="1024">
+        </picture>
         <div class="cta-overlay1"></div>
         <div class="cta-overlay2"></div>
         <div class="cta-img-text">
@@ -300,15 +309,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Тень хедера при скролле — через CSS-класс
   var header = document.getElementById('site-header');
   if (header) {
     var onHeaderScroll = function () {
-      header.style.boxShadow = window.scrollY > 8 ? '0 6px 24px rgba(25,21,19,0.09)' : 'none';
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
     };
     window.addEventListener('scroll', onHeaderScroll, { passive: true });
     onHeaderScroll();
   }
 
+  // Бургер-меню
   var burger = document.getElementById('spb-burger');
   var mobileMenu = document.getElementById('spb-mobile-menu');
   if (burger && mobileMenu) {
@@ -333,48 +344,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (reduce) return;
 
-  var gear = document.querySelector('[data-anim="gear"]');
-  if (gear) gear.style.animation = 'spbSpin 22s linear infinite';
+  // Reveal секций при скролле через IntersectionObserver
+  var sections = Array.from(document.querySelectorAll('section')).slice(1);
+  sections.forEach(function (s) { s.classList.add('spb-reveal'); });
 
-  var sections = Array.from(document.querySelectorAll('section'));
-  var hero = sections[0];
-  if (hero) {
-    hero.style.opacity = '0';
-    hero.style.transform = 'translateY(14px)';
-    hero.style.transition = 'opacity .8s ease, transform .8s ease';
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        hero.style.opacity = '1';
-        hero.style.transform = 'none';
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('spb-visible');
+          io.unobserve(entry.target);
+        }
       });
-    });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    sections.forEach(function (s) { io.observe(s); });
+  } else {
+    sections.forEach(function (s) { s.classList.add('spb-visible'); });
   }
-  var rest = sections.slice(1);
-  rest.forEach(function (s) {
-    s.style.opacity = '0';
-    s.style.transform = 'translateY(30px)';
-    s.style.transition = 'opacity .7s ease, transform .7s ease';
-  });
-  var reveal = function (s) { s.dataset._shown = '1'; s.style.opacity = '1'; s.style.transform = 'none'; };
-  var checkSections = function () {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var remaining = false;
-    rest.forEach(function (s) {
-      if (s.dataset._shown) return;
-      var r = s.getBoundingClientRect();
-      if (r.top < vh * 0.9 && r.bottom > 0) reveal(s);
-      else remaining = true;
-    });
-    if (!remaining) {
-      window.removeEventListener('scroll', onRevealScroll, true);
-      window.removeEventListener('resize', checkSections);
-    }
-  };
-  var onRevealScroll = function () { checkSections(); };
-  window.addEventListener('scroll', onRevealScroll, true);
-  window.addEventListener('resize', checkSections);
-  checkSections();
-  setTimeout(function () { rest.forEach(reveal); }, 4500);
 });
 </script>
 @endpush
