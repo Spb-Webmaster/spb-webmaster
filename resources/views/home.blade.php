@@ -144,8 +144,8 @@
           <div class="about-photo-box1"></div>
           <div class="about-photo-box2"></div>
           <picture>
-            @if($aboutPhotoWebp)<source type="image/webp" srcset="{{ $aboutPhotoWebp }}">@endif
-            <img src="{{ $aboutPhotoUrl }}" alt="Специалист студии Spb-Webmaster за работой" class="about-photo" loading="lazy" width="1403" height="1121">
+            @isset($aboutPhotoWebp)<source type="image/webp" srcset="{{ $aboutPhotoWebp }}">@endisset
+            <img src="{{ $aboutPhotoUrl }}" alt="Специалист студии Spb-Webmaster за работой" class="about-photo" loading="lazy" width="900" height="719">
           </picture>
           <div class="about-years-badge">
             <span class="about-years-num">{{ $home['about_years'] ?? 25 }}</span>
@@ -186,8 +186,8 @@
         <div class="tech-card-deco1"></div>
         <div class="tech-card-deco2"></div>
         <picture>
-          @if($laravelImageWebp)<source type="image/webp" srcset="{{ $laravelImageWebp }}">@endif
-          <img src="{{ $laravelImageUrl }}" alt="Laravel" class="tech-logo" loading="lazy" width="84" height="84">
+          @isset($laravelImageWebp)<source type="image/webp" srcset="{{ $laravelImageWebp }}">@endisset
+          <img src="{{ $laravelImageUrl }}" alt="Laravel" class="tech-logo" loading="lazy" width="300" height="300">
         </picture>
         <h3 class="tech-card-h3">{{ $home['tech_laravel_title'] ?? 'Готовый конструктор, а не стройка с нуля' }}</h3>
         <p class="tech-card-p">{{ $home['tech_laravel_desc'] ?? 'Представьте дом из готовых стен, крыши и инженерных систем вместо самодельных кирпичей. Laravel даёт такие «детали» — мы собираем из них именно то, что нужно вашему бизнесу.' }}</p>
@@ -269,7 +269,7 @@
       <div class="cta-img-col">
         <picture>
           <source type="image/webp" srcset="{{ $contactPhotoWebp }}">
-          <img src="{{ $contactPhotoUrl }}" alt="Консультант студии Spb-Webmaster" class="cta-img" loading="lazy" width="1536" height="1024">
+          <img src="{{ $contactPhotoUrl }}" alt="Консультант студии Spb-Webmaster" class="cta-img" loading="lazy" width="900" height="600">
         </picture>
         <div class="cta-overlay1"></div>
         <div class="cta-overlay2"></div>
