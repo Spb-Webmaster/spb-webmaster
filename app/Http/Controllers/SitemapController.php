@@ -25,6 +25,7 @@ class SitemapController extends Controller
                 $dom->parentNode->removeChild($dom);
             } else {
                 $seen[$normalized] = true;
+                $url->loc = $normalized; // strip trailing slash from loc
             }
         }
 
