@@ -10,7 +10,7 @@ class SitemapController extends Controller
     public function sitemap():void
     {
         $path = public_path('sitemap.xml');
-        SitemapGenerator::create(config('app.url'))->writeToFile($path);
+        SitemapGenerator::create(rtrim(config('app.url'), '/') . '/')->writeToFile($path);
 
     }
 
