@@ -120,11 +120,19 @@ function setOpen(root, trigger, isOpen) {
     if (isOpen) {
         const dropdown = root.querySelector('.mz-select__dropdown');
         const rect = root.getBoundingClientRect();
-        const spaceBelow = window.innerHeight - rect.bottom;
+        const spaceBelow = window.innerHeight - rect.bottom - 12;
+        const spaceAbove = rect.top - 12;
         const dropHeight = Math.min((dropdown ? dropdown.scrollHeight : 0) + 14, 252);
-        root.classList.toggle('is-open--up', spaceBelow < dropHeight);
+        const openUp = spaceBelow < dropHeight && spaceAbove > spaceBelow;
+        root.classList.toggle('is-open--up', openUp);
+        if (dropdown) {
+            const available = openUp ? spaceAbove : spaceBelow;
+            dropdown.style.maxHeight = Math.min(available, 240) + 'px';
+        }
     } else {
         root.classList.remove('is-open--up');
+        const dropdown = root.querySelector('.mz-select__dropdown');
+        if (dropdown) dropdown.style.maxHeight = '';
     }
     root.classList.toggle(OPEN_CLASS, isOpen);
     trigger.setAttribute('aria-expanded', String(isOpen));
