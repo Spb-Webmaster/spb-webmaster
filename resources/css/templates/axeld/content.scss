@@ -2695,6 +2695,10 @@ textarea.c-form-input {
         margin-left: 15px;
         margin-right: 15px;
     }
+    .spb-footer__shape--dot-left {
+        top: 84px !important;
+        left: 84% !important;
+    }
 
 }
 
@@ -2702,10 +2706,10 @@ textarea.c-form-input {
     .cta-img {
         left: 111px;
     }
-
     .cta-overlay1 {
         background:
             linear-gradient(to right, rgba($spb-dark, 0.97) 0%, rgba($spb-dark, 0.75) 38%, transparent 68%),
             linear-gradient(180deg, rgba($spb-dark, 0.15) 0%, rgba($spb-dark, 0.35) 45%, rgba($spb-dark, 0.92) 100%);
     }
+
 }
