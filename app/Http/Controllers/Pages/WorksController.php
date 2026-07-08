@@ -14,9 +14,9 @@ class WorksController extends Controller
 
         $stats = $w['stats'] ?? [];
 
-        $cats = ['Все', 'Страхование', 'Туризм', 'Госсектор', 'Экспертиза', 'Билеты22'];
-
         $projects = is_array($w['projects'] ?? null) ? $w['projects'] : [];
+
+        $cats = ['Все', ...array_values(array_unique(array_filter(array_column($projects, 'cat'))))];
 
         foreach ($projects as &$project) {
             $firstImg = $project['images'][0]['image'] ?? '';
