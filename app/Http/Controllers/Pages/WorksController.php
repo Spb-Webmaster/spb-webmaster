@@ -14,7 +14,7 @@ class WorksController extends Controller
 
         $stats = $w['stats'] ?? [];
 
-        $cats = ['Все', 'Страхование', 'Туризм', 'Госсектор', 'Экспертиза', 'Билеты'];
+        $cats = ['Все', 'Страхование', 'Туризм', 'Госсектор', 'Экспертиза', 'Билеты22'];
 
         $projects = is_array($w['projects'] ?? null) ? $w['projects'] : [];
 
