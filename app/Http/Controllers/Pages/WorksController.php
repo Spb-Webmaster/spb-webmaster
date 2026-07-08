@@ -12,11 +12,21 @@ class WorksController extends Controller
     {
         $w = Setting::getGroup('works')->data ?? [];
 
-        $stats = $w['stats'] ?? [];
-
         $projects = is_array($w['projects'] ?? null) ? $w['projects'] : [];
 
         $cats = ['Все', ...array_values(array_unique(array_filter(array_column($projects, 'cat'))))];
+
+        $stats = is_array($w['stats'] ?? null) ? $w['stats'] : [];
+
+        foreach ($stats as &$stat) {
+            $label = $stat['label'] ?? '';
+            if (str_contains($label, 'проект')) {
+                $stat['value'] = (string) count($projects);
+            } elseif (str_contains($label, 'отрасл')) {
+                $stat['value'] = (string) (count($cats) - 1);
+            }
+        }
+        unset($stat);
 
         foreach ($projects as &$project) {
             $firstImg = $project['images'][0]['image'] ?? '';
