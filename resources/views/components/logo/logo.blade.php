@@ -1,5 +1,4 @@
 @props(['prefix' => 'logo'])
-
 @php
     $isHome = request()->routeIs('home');
 @endphp
